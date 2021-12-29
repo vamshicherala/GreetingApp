@@ -11,5 +11,7 @@ public interface IGreetingService {
 
 	Greeting addGreeting(User user);
 
+
+	Greeting findById(long parseLong);
 	
 }
