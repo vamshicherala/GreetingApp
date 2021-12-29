@@ -1,6 +1,7 @@
 package com.bridgelabz.greetingapp.services;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
 import com.bridgelabz.greetingapp.model.Greeting;
@@ -46,6 +47,14 @@ public class GreetingService implements IGreetingService {
 		String message = "Hello Kiran Its updated message";
 		return greetingRepository.save(new Greeting(id, message));
 	}
+
+	@Override
+	public void deleteMessage(long id) {
+		greetingRepository.deleteById(id);
+		
+	}
+
+	
 
 	
 }

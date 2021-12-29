@@ -20,4 +20,8 @@ public interface IGreetingService {
 	List<Greeting> getAllMessages();
 
 	Greeting updateMessage(long id);
+
+
+	void deleteMessage(long id);
+	
 }
