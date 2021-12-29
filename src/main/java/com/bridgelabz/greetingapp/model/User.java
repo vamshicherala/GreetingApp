@@ -1,7 +1,7 @@
 package com.bridgelabz.greetingapp.model;
 
 public class User {
-    private String firstName;
+	private String firstName;
     private String lastName;
 	public String getFirstName() {
 		return firstName;

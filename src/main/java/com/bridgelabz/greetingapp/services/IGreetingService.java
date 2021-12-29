@@ -1,10 +1,15 @@
 package com.bridgelabz.greetingapp.services;
 
 import com.bridgelabz.greetingapp.model.Greeting;
+import com.bridgelabz.greetingapp.model.User;
 
-import Data.UserData;
 
 public interface IGreetingService {
-    Greeting greetingMessage();
-    String greetingMessageByName(UserData userData);
+   
+	Greeting greetingMessage();
+
+
+	Greeting addGreeting(User user);
+
+	
 }

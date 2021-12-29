@@ -4,16 +4,19 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import com.bridgelabz.greetingapp.model.Greeting;
 import com.bridgelabz.greetingapp.model.User;
+import com.bridgelabz.greetingapp.repository.GreetingRepository;
 
-import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import Data.UserData;
 
 @Service
-public class GreetingService implements IGreetingService{
-    private static final String template = "Hello world";
+public class GreetingService implements IGreetingService {
+	private static final String template = "Hello world";
 	private final AtomicLong counter = new AtomicLong();
+	
+	@Autowired
+	private GreetingRepository greetingRepository;
 
 	@Override
 	public Greeting greetingMessage() {
@@ -21,10 +24,10 @@ public class GreetingService implements IGreetingService{
 	}
 
 	@Override
-	public String greetingMessageByName(UserData userData) {
-		User user = new User();
-		ModelMap modelMapper = new ModelMapper();
-		modelMapper.map(userData, user);
-		return ("Hello " + user.getFirstName() + " " + user.getLastName());
+	public Greeting addGreeting(User user) {
+		String message = String.format(template,(user.toString().isEmpty() ? "Hello World" : user.toString()));
+		return greetingRepository.save(new Greeting(counter.incrementAndGet(),message));
 	}
+
+	
 }

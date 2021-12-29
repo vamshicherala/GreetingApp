@@ -1,7 +1,7 @@
-package Data;
+package com.bridgelabz.greetingapp.data;
 
 public class UserData {
-    private String firstName;
+	private String firstName;
 	private String lastName;
 	public String getFirstName() {
 		return firstName;
@@ -15,4 +15,6 @@ public class UserData {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+	    
 }
